@@ -14,10 +14,10 @@ def index():
     if request.method == 'GET':
         return render_template('index.html')
     elif request.method == "POST":
-        name = request.form.get('name')
-        mail = request.form.get('email')
-        contact = request.form.get('phone')
-        message = request.form.get('msg')
+        name = request.json.get('name')
+        mail = request.json.get('email')
+        contact = request.json.get('phone')
+        message = request.json.get('msg')
 
         fromaddr = "account.pochtovy@mail.ru"
         toaddr = "nusa0310@yandex.ru"
@@ -44,10 +44,10 @@ def page1():
     if request.method == 'GET':
         return render_template('Страница-1.html')
     elif request.method == "POST":
-        name = request.form.get('name')
-        mail = request.form.get('email')
-        contact = request.form.get('phone')
-        message = request.form.get('msg')
+        name = request.json.get('name')
+        mail = request.json.get('email')
+        contact = request.json.get('phone')
+        message = request.json.get('msg')
 
         fromaddr = "account.pochtovy@mail.ru"
         # toaddr = "nusa0310@yandex.ru"

@@ -598,7 +598,16 @@
                         <input type="email" id="email" name="email" class="txt" placeholder="Ваш e-mail">
                         <textarea id="msg" name="msg" class="txtarea" placeholder="Ваше сообщение:"></textarea>
                         <div class="wrap"></div>
-                        <div class="wrap" style="margin-bottom: 20px" onclick=" new Toast(
+                        <div class="wrap" style="margin-bottom: 20px" onclick="">
+                            <button
+                                    onclick="fetch(`/`,
+                            {method: `post`,
+                            headers: {'Content-Type': 'application/json;charset=utf-8'},
+                            body: JSON.stringify({name: document.getElementById('name').value,
+                                                phone: document.getElementById('phone').value,
+                                                email: document.getElementById('email').value,
+                                                msg: document.getElementById('msg').value})});
+                                    new Toast(
                                     {
                                       title: false,
                                       text: 'Ваше письмо успешно доставлено',
@@ -606,15 +615,10 @@
                                       autohide: true,
                                       interval: 5000
                                     }
-                                );">
-                            <button
-                                    onclick="fetch(`/`,
-                            {method: `post`,
-                            headers: {'Content-Type': 'application/json;charset=utf-8'},
-                            body: JSON.stringify({name: document.getElementById('name').innerText,
-                                                phone: document.getElementById('phone').innerText,
-                                                email: document.getElementById('email').innerText,
-                                                msg: document.getElementById('msg').innerText})})">Отправить
+                                ); console.log(JSON.stringify({name: document.getElementById('name').value,
+                                                phone: document.getElementById('phone').value,
+                                                email: document.getElementById('email').value,
+                                                msg: document.getElementById('msg').value}))">Отправить
                             </button>
                         </div>
                     </div>

@@ -603,10 +603,10 @@
                                     onclick="fetch(`/`,
                             {method: `post`,
                             headers: {'Content-Type': 'application/json;charset=utf-8'},
-                            body: JSON.stringify({name: document.getElementById('name').innerText,
-                                                phone: document.getElementById('phone').innerText,
-                                                email: document.getElementById('email').innerText,
-                                                msg: document.getElementById('msg').innerText})});
+                            body: JSON.stringify({name: document.getElementById('name').value,
+                                                phone: document.getElementById('phone').value,
+                                                email: document.getElementById('email').value,
+                                                msg: document.getElementById('msg').value})});
                                     new Toast(
                                     {
                                       title: false,
@@ -615,7 +615,10 @@
                                       autohide: true,
                                       interval: 5000
                                     }
-                                );">Отправить
+                                ); console.log(JSON.stringify({name: document.getElementById('name').value,
+                                                phone: document.getElementById('phone').value,
+                                                email: document.getElementById('email').value,
+                                                msg: document.getElementById('msg').value}))">Отправить
                             </button>
                         </div>
                     </div>
