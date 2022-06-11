@@ -51,7 +51,7 @@ def page1():
 
         fromaddr = "account.pochtovy@mail.ru"
         # toaddr = "nusa0310@yandex.ru"
-        toaddr = "asikpro13@mail.ru"
+        toaddr = "nusa0310@yandex.ru"
         # mypass = "copsig-zaFsyz-mujra5"
         mypass = "NWaem5MMbv1c4LsFX2Ud"
 
