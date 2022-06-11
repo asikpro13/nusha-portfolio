@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, render_template, request, redirect
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -8,6 +10,7 @@ application = Flask(__name__)
 
 @application.route('/', methods=['GET', 'POST'])
 def index():
+
     if request.method == 'GET':
         return render_template('index.html')
     elif request.method == "POST":
@@ -32,7 +35,7 @@ def index():
         server = smtplib.SMTP_SSL('smtp.mail.ru', 465)
         server.login(fromaddr, mypass)
         server.sendmail(fromaddr, toaddr, text)
-        return render_template('Страница-1.html')
+        return json.dumps({'status': '200'})
     return render_template('Страница-1.html')
 
 
@@ -43,8 +46,8 @@ def page1():
     elif request.method == "POST":
         name = request.form.get('name')
         mail = request.form.get('email')
-        contact = request.form.get('contact')
-        message = request.form.get('message')
+        contact = request.form.get('phone')
+        message = request.form.get('msg')
 
         fromaddr = "account.pochtovy@mail.ru"
         # toaddr = "nusa0310@yandex.ru"
@@ -63,7 +66,7 @@ def page1():
         server = smtplib.SMTP_SSL('smtp.mail.ru', 465)
         server.login(fromaddr, mypass)
         server.sendmail(fromaddr, toaddr, text)
-        return render_template('Страница-1.html')
+        return json.dumps({'status': '200'})
     return render_template('Страница-1.html')
 
 
@@ -83,4 +86,4 @@ def page4():
 
 
 if __name__ == '__main__':
-    application.run(host='0.0.0.0', debug=True)
+    application.run(host='0.0.0.0')
